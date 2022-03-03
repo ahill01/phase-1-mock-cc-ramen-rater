@@ -14,6 +14,7 @@ fetch(baseURL+"/ramens")
 
 function renderRamens(ramens){
     //ramenArray = ramens; 
+    updateRamenDetails2(ramens[0]);
 ramens.forEach(ramen =>appendRamenImage(ramen));
 
 };
@@ -30,7 +31,7 @@ function appendRamenImage(ramenObj){
     
         //OPTION 3- store only ID # & make call to database
         //img.dataset.id = ramen.id; 
-        img.addEventListener(`click`,updateRamenDetails); 
+        img.addEventListener(`click`,() => updateRamenDetails(ramen)); 
         ramenMenu.append(img);
         
     }
@@ -47,6 +48,7 @@ function appendRamenImage(ramenObj){
     //render comment 
 
     //render rating 
+    //OPTION 1- .details
     function updateRamenDetails(e){
         let ramen = e.target.details;
         const image = document.querySelector(".detail-image");
@@ -60,6 +62,22 @@ function appendRamenImage(ramenObj){
         const comment = document.querySelector(`#comment-display`);
         comment.innerText = ramen.comment;
     }
+
+    //OPTION 2- accept ramen object 
+    function updateRamenDetails2(ramenObject){
+       // let ramen = e.target.details;
+        const image = document.querySelector(".detail-image");
+        image.src = ramen.image
+        const name = document.querySelector(".name");
+        name.innerText = ramen.name;
+        const restaurant = document.querySelector("restaurant");
+        restaurant.innerText = ramen.restaurant;
+        const rating = document.querySelector(`#rating-display`);
+        rating.innerText = ramen.rating;
+        const comment = document.querySelector(`#comment-display`);
+        comment.innerText = ramen.comment;
+    }
+
 
 
 // Create a new ramen after submitting the new-ramen form. The new ramen should be added to the#ramen-menu div. The new ramen does not need to persist; in other words, if you refresh the page, it's okay that the new ramen is no longer on the page.
@@ -81,3 +99,4 @@ function appendRamenImage(ramenObj){
         const ramen = {name,restaurant,image,rating,comment};
         appendRamenImage(ramen);
     };
+
