@@ -68,5 +68,4 @@ const newBowl = {
 //renderRamen expects an array so we're making one lol
 newBowlArray = [newBowl];
 renderRamen(newBowlArray)
-
 }
