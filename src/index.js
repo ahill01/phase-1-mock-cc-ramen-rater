@@ -17,7 +17,7 @@ const newCommentBox = document.querySelector(`#new-comment`);
 //request ramen objects from server
 fetch(`http://localhost:3000/ramens`)
 .then((ramens) => ramens.json())
-.then(ramenData => renderRamen(ramenData))
+.then(ramenData => renderRamen(ramenData));
 
 //renderRamen inside ramen-menu
 function renderRamen(ramenData){
@@ -64,8 +64,10 @@ const newBowl = {
     rating:newRatingBox.value,
     comment:newCommentBox.value,
 }
-
 //renderRamen expects an array so we're making one lol
 newBowlArray = [newBowl];
 renderRamen(newBowlArray)
 }
+
+
+//ADVANCED DELIVERABLE- initial render of detail, 
