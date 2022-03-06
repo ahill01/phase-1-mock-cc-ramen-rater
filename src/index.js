@@ -12,7 +12,7 @@ const newNameBox = document.querySelector(`#new-name`);
 const newRestaurantBox = document.querySelector(`#new-restaurant`);
 const newImgBox = document.querySelector(`#new-image`); 
 const newRatingBox = document.querySelector(`#new-rating`);
-const newCommentBox = document.querySelector(`#new-comment`); 
+const newCommentBox = document.querySelector(`#new-comment`);
 
 //request ramen objects from server
 fetch(`http://localhost:3000/ramens`)
